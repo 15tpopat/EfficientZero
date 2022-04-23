@@ -217,8 +217,8 @@ class WarpFrame(gym.ObservationWrapper):
         return obs
 
 
-def make_atari(env_id, skip=4, max_episode_steps=None):
-    """Make Atari games
+def make_game(env_id, df=None, skip=4, max_episode_steps=None):
+    """Make games
     Parameters
     ----------
     env_id: str
@@ -228,7 +228,7 @@ def make_atari(env_id, skip=4, max_episode_steps=None):
     max_episode_steps: int
         max moves for an episode
     """
-    env = gym.make(env_id)
+    env = gym.make(env_id, df=df)
     assert 'NoFrameskip' in env.spec.id
     env = NoopResetEnv(env, noop_max=30)
     env = MaxAndSkipEnv(env, skip=skip)

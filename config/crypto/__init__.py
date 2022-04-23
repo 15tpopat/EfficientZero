@@ -3,13 +3,13 @@ import torch
 from core.config import BaseConfig
 from core.utils import make_game, WarpFrame, EpisodicLifeEnv
 from core.dataset import Transforms
-from .env_wrapper import AtariWrapper
+from .env_wrapper import CryptoWrapper
 from .model import EfficientZeroNet
 
 
-class AtariConfig(BaseConfig):
+class CryptoConfig(BaseConfig):
     def __init__(self):
-        super(AtariConfig, self).__init__(
+        super(CryptoConfig, self).__init__(
             training_steps=100000,
             last_steps=20000,
             test_interval=10000,
@@ -150,7 +150,7 @@ class AtariConfig(BaseConfig):
         if save_video:
             from gym.wrappers import Monitor
             env = Monitor(env, directory=save_path, force=True, video_callable=video_callable, uid=uid)
-        return AtariWrapper(env, discount=self.discount, cvt_string=self.cvt_string)
+        return CryptoWrapper(env, discount=self.discount, cvt_string=self.cvt_string)
 
     def scalar_reward_loss(self, prediction, target):
         return -(torch.log_softmax(prediction, dim=1) * target).sum(1)
@@ -166,4 +166,4 @@ class AtariConfig(BaseConfig):
         return self.transforms.transform(images)
 
 
-game_config = AtariConfig()
+game_config = CryptoConfig()
