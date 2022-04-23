@@ -52,10 +52,11 @@ if __name__ == '__main__':
     parser.add_argument('--info', type=str, default='none', help='debug string')
     parser.add_argument('--load_model', action='store_true', default=False, help='choose to load model')
     parser.add_argument('--model_path', type=str, default='./results/test_model.p', help='load model path')
-    parser.add_argument('--object_store_memory', type=int, default=10 * 1024 * 1024 * 1024, help='object store memory')
+    parser.add_argument('--object_store_memory', type=int, default=10, help='object store memory [gb]')
 
     # Process arguments
     args = parser.parse_args()
+    args.object_store_memory *= 1024 * 1024 * 1024
     args.device = 'cuda' if (not args.no_cuda) and torch.cuda.is_available() else 'cpu'
     assert args.revisit_policy_search_rate is None or 0 <= args.revisit_policy_search_rate <= 1, \
         ' Revisit policy search rate should be in [0,1]'
