@@ -12,6 +12,9 @@ from scipy.stats import entropy
 
 import gym_anytrading
 
+env = gym.make('stocks-v0')
+print(env)
+
 class LinearSchedule(object):
     def __init__(self, schedule_timesteps, final_p, initial_p=1.0):
         """Linear interpolation between initial_p and final_p over
