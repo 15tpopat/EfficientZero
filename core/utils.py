@@ -253,7 +253,7 @@ def make_game(env_id, df=None, skip=4, max_episode_steps=None):
         env = gym.make(env_id)
     else:
         env = gym.make(env_id, df=df)
-    assert 'NoFrameskip' in env.spec.id
+    # assert 'NoFrameskip' in env.spec.id
     env = NoopResetEnv(env, noop_max=30)
     env = MaxAndSkipEnv(env, skip=skip)
     if max_episode_steps is not None:
