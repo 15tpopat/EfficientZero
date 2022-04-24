@@ -22,15 +22,15 @@ from . import agdatasets
 
 
 
-register(
-    id='stocks-v0',
-    entry_point='gym_anytrading.envs:StocksEnv',
-    kwargs={
-        'df': deepcopy(agdatasets.STOCKS_GOOGL),
-        'window_size': 30,
-        'frame_bound': (30, len(agdatasets.STOCKS_GOOGL))
-    }
-)
+# register(
+#     id='stocks-v0',
+#     entry_point='gym_anytrading.envs:StocksEnv',
+#     kwargs={
+#         'df': deepcopy(agdatasets.STOCKS_GOOGL),
+#         'window_size': 30,
+#         'frame_bound': (30, len(agdatasets.STOCKS_GOOGL))
+#     }
+# )
 
 class LinearSchedule(object):
     def __init__(self, schedule_timesteps, final_p, initial_p=1.0):
