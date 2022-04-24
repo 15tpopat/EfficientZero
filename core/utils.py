@@ -10,6 +10,7 @@ import numpy as np
 
 from scipy.stats import entropy
 
+import gym_anytrading
 
 class LinearSchedule(object):
     def __init__(self, schedule_timesteps, final_p, initial_p=1.0):

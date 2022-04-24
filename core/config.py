@@ -6,8 +6,6 @@ import numpy as np
 
 from core.game import Game
 
-import gym_anytrading
-
 
 class DiscreteSupport(object):
     def __init__(self, min: int, max: int, delta=1.):
