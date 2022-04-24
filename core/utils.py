@@ -18,7 +18,7 @@ import gym_anytrading
 from gym.envs.registration import register
 from copy import deepcopy
 
-from agdatasets import datasets
+from .agdatasets import datasets
 
 
 
